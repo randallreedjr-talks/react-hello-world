@@ -11,6 +11,10 @@ export default class HelloWorldContainer extends Component {
   }
 
   componentDidMount() {
+    this.getName();
+  }
+
+  getName() {
     // Imagine an ajax call to get name from server
     let name = 'Randall';
     this.setState({name});
