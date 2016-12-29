@@ -9,21 +9,21 @@ import ModalContainer from './ModalContainer.js';
 export default class HelloWorldContainer extends Component {
   constructor() {
     super();
+<<<<<<< a03180b0e7d5336150bb0b6c164c3132349f3d90
     this.state = { name: '', modalIsOpen: false };
     // bind this to allow updating state
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleClick = this.handleClick.bind(this);
+=======
+    this.state = { name: 'World' };
+    this.handleSubmit = this.handleSubmit.bind(this);
+>>>>>>> Update name based on form input
   }
 
-  componentDidMount() {
-    this.getName();
-  }
-
-  getName() {
-    // Imagine an ajax call to get name from server
-    let name = 'Randall';
-    this.setState({name});
+  handleSubmit(e, nameInput) {
+    e.preventDefault();
+    this.setState({name: nameInput.value});
   }
 
   handleSubmit(e, nameInput) {
