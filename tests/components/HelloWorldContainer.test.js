@@ -11,9 +11,9 @@ describe('HelloWorldContainer', () => {
     expect(subject.find(HelloWorld).length).toEqual(1);
   });
 
-  it('defaults name to Randall', () => {
+  it('does not set a default name', () => {
     let subject = mount(<HelloWorldContainer name='Tester' />);
 
-    expect(subject.text()).toContain('Hello Randall!');
+    expect(subject.text()).toContain('Hello World!');
   });
 });
