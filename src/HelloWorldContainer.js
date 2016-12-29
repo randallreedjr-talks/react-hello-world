@@ -10,16 +10,6 @@ export default class HelloWorldContainer extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-    this.getName();
-  }
-
-  getName() {
-    // Imagine an ajax call to get name from server
-    let name = 'Randall';
-    this.setState({name});
-  }
-
   handleSubmit(e, nameInput) {
     e.preventDefault();
     // Imagine an ajax call to update name to server

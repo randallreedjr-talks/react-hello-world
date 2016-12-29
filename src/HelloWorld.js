@@ -2,6 +2,10 @@
 import React, { Component } from 'react';
 
 export default class HelloWorld extends Component {
+  componentDidUpdate() {
+    this.nameInput.value = '';
+  }
+
   render() {
     let form, editLink;
     if (this.props.editMode) {
