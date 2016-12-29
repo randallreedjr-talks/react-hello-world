@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HelloWorld from './HelloWorld.js';
+import HelloWorldContainer from './HelloWorldContainer.js';
 
 import HelloWorldContainer from './HelloWorldContainer.js';
 import Sidebar from './Sidebar.js';
