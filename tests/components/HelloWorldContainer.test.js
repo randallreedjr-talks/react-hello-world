@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from '../src/HelloWorld';
-import HelloWorldContainer from '../src/HelloWorldContainer';
+import HelloWorld from '../../src/HelloWorld';
+import HelloWorldContainer from '../../src/HelloWorldContainer';
 import { shallow, mount } from 'enzyme';
 
 describe('HelloWorldContainer', () => {
