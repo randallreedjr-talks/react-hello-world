@@ -5,8 +5,12 @@ export default class HelloWorld extends Component {
   render() {
     return (
       <p className="App-intro">
-        Hello World!
+        Hello {this.props.name}!
       </p>
     );
   }
+}
+
+HelloWorld.propTypes = {
+  name: React.PropTypes.string.isRequired
 }

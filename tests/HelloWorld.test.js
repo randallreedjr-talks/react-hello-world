@@ -4,9 +4,9 @@ import HelloWorld from '../src/HelloWorld';
 import { shallow } from 'enzyme';
 
 describe('HelloWorld', () => {
-  it('displays Hello World!', () => {
-    let subject = shallow(<HelloWorld />);
+  it('displays greeting with provided name', () => {
+    let subject = shallow(<HelloWorld name='Tester' />);
 
-    expect(subject.text()).toContain('Hello World!');
+    expect(subject.text()).toContain('Hello Tester!');
   });
 });
