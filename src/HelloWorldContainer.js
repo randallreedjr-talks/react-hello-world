@@ -20,6 +20,16 @@ export default class HelloWorldContainer extends Component {
     this.setState({name: nameInput.value});
   }
 
+  componentDidMount() {
+    this.getName();
+  }
+
+  getName() {
+    // Imagine an ajax call to get name from server
+    let name = 'Randall';
+    this.setState({name});
+  }
+
   render() {
     return (
       <HelloWorld name={this.state.name} onSubmit={this.handleSubmit} />
