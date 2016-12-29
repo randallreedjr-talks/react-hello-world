@@ -1,7 +1,10 @@
 // HelloWorldContainer.js
 import React, { Component } from 'react';
 import HelloWorld from './HelloWorld.js';
+<<<<<<< 4f165aeec7d114205999d56c846a41d91ad51dec
 import ModalContainer from './ModalContainer.js';
+=======
+>>>>>>> Mock server response with user name
 
 export default class HelloWorldContainer extends Component {
   constructor() {
@@ -14,6 +17,10 @@ export default class HelloWorldContainer extends Component {
   }
 
   componentDidMount() {
+    this.getName();
+  }
+
+  getName() {
     // Imagine an ajax call to get name from server
     let name = 'Randall';
     this.setState({name});
