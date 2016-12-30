@@ -2,10 +2,6 @@
 import React, { Component } from 'react';
 
 export default class HelloWorld extends Component {
-  componentDidUpdate() {
-    this.nameInput.value = '';
-  }
-
   render() {
     return (
       <div className="container__main">
