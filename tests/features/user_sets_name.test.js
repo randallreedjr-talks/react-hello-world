@@ -7,6 +7,7 @@ describe('Setting name', () => {
   it('updates displayed name', () => {
     let subject = mount(<HelloWorldContainer />);
     // simulate change does not work with refs
+    subject.find('.name-link').simulate('click');
     subject.find('.name-input').get(0).value = 'Tester';
     subject.find('form').simulate('submit');
 

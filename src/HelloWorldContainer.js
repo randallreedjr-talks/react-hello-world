@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import HelloWorld from './HelloWorld.js';
 
-
 export default class HelloWorldContainer extends Component {
   constructor() {
     super();
-    this.state = { name: '' };
+    this.state = { name: '', editMode: false };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -18,17 +18,23 @@ export default class HelloWorldContainer extends Component {
 
   handleSubmit(e, nameInput) {
     e.preventDefault();
-    this.setState({name: nameInput.value});
+    // Imagine an ajax call to update name to server
+    this.setState({name: nameInput.value, editMode: false});
   }
 
-  handleSubmit(e, nameInput) {
+  handleClick(e) {
     e.preventDefault();
-    this.setState({name: nameInput.value});
+    this.setState({ editMode: true });
   }
 
   render() {
     return (
-      <HelloWorld name={this.state.name} onSubmit={this.handleSubmit} />
+      <HelloWorld
+        name={this.state.name}
+        onSubmit={this.handleSubmit}
+        onClick={this.handleClick}
+        editMode={this.state.editMode}
+      />
     );
   }
 }
