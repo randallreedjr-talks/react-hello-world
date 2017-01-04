@@ -1,12 +1,15 @@
 // HelloWorldContainer.js
 import React, { Component } from 'react';
 import HelloWorld from './HelloWorld.js';
+import ModalContainer from './ModalContainer.js';
 
 export default class HelloWorldContainer extends Component {
   constructor() {
     super();
-    this.state = { name: '', editMode: false };
+    this.state = { name: '', modalIsOpen: false };
+    // bind this to allow updating state
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -19,22 +22,31 @@ export default class HelloWorldContainer extends Component {
   handleSubmit(e, nameInput) {
     e.preventDefault();
     // Imagine an ajax call to update name to server
-    this.setState({name: nameInput.value, editMode: false});
+    this.setState({name: nameInput.value, modalIsOpen: false});
+  }
+
+  handleCancel() {
+    this.setState({ modalIsOpen: false });
   }
 
   handleClick(e) {
     e.preventDefault();
-    this.setState({ editMode: true });
+    this.setState({ modalIsOpen: true });
   }
 
   render() {
     return (
-      <HelloWorld
-        name={this.state.name}
-        onSubmit={this.handleSubmit}
-        onClick={this.handleClick}
-        editMode={this.state.editMode}
-      />
+      <div>
+        <HelloWorld
+          name={this.state.name}
+          onClick={this.handleClick}
+        />
+        <ModalContainer
+          modalIsOpen={this.state.modalIsOpen}
+          onSubmit={this.handleSubmit}
+          onCancel={this.handleCancel}
+        />
+      </div>
     );
   }
 }

@@ -3,3 +3,186 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.Modal-backdrop {
+  background-color: #000;
+  opacity: 0.50;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #000;
+  visibility: hidden;
+}
+
+.Modal {
+  bottom: 0;
+  left: 0;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  z-index: 110;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Modal.modal-open, .Modal-backdrop.modal-open {
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  visibility: visible;
+}
+
+.Modal-dialog {
+  width: 400px;
+  margin: 190px auto;
+  max-width: 100%;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.Modal-content {
+  background-color: white;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.175), 0 3px 8px rgba(0, 0, 0, 0.175);
+  outline: none;
+  position: relative;
+}
+
+.Modal__header {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.Modal__footer {
+  box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.05);
+  z-index: 1;
+}
+
+.Modal__header__text {
+  color: inherit;
+  font-size: 18px;
+  /*font-weight: 500;*/
+  line-height: 1;
+  margin: 0;
+}
+
+.Modal__header, .Modal__body, .Modal__footer {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.Button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 2.3em;
+  height: 2.4em;
+  margin-bottom: 0;
+  overflow: hidden;
+  padding: 0 1em;
+  text-align: center;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  -webkit-appearance: none;
+}
+.Button:hover,
+.Button:focus,
+.Button.focus,
+.Button.is-focus {
+  color: #1385e5;
+  text-decoration: none;
+}
+.Button:active,
+.Button.active,
+.Button.is-active {
+  background-image: none;
+  outline: 0;
+}
+.Button.disabled,
+.Button[disabled] {
+  opacity: .4;
+  pointer-events: none;
+}
+
+.Button--link-cancel {
+  color: #999;
+  font-weight: normal;
+}
+.Button--link-cancel,
+.Button--link-cancel:active,
+.Button--link-cancel.active,
+.Button--link-cancel[disabled],
+fieldset[disabled] .Button--link-cancel {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+.Button--link-cancel,
+.Button--link-cancel:hover,
+.Button--link-cancel:focus,
+.Button--link-cancel:active {
+  border-color: transparent;
+  outline: none;
+}
+.Button--link-cancel:hover,
+.Button--link-cancel:focus {
+  background-color: transparent;
+  color: #d64242;
+  text-decoration: underline;
+}
+
+.Button--primary {
+  background-image: -webkit-linear-gradient(top, #2591ed 0%, #1177cd 100%);
+  background-image: -o-linear-gradient(top, #2591ed 0%, #1177cd 100%);
+  background-image: linear-gradient(to bottom, #2591ed 0%, #1177cd 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2591ed', endColorstr='#ff1177cd', GradientType=0);
+  background-color: #1385e5;
+  border-color: #1177cd #0f6ab6 #0d5c9e;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 400;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.Button--primary:hover,
+.Button--primary:focus,
+.Button--primary.focus {
+  background-image: -webkit-linear-gradient(top, #3c9def 0%, #1385e5 100%);
+  background-image: -o-linear-gradient(top, #3c9def 0%, #1385e5 100%);
+  background-image: linear-gradient(to bottom, #3c9def 0%, #1385e5 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c9def', endColorstr='#ff1385e5', GradientType=0);
+  border-color: #1385e5 #1177cd #0f6ab6;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  color: white;
+  outline: none;
+}
+.Button--primary:focus,
+.Button--primary.focus {
+  box-shadow: 0 0 0 3px rgba(19, 133, 229, 0.25);
+}
+.Button--primary:active,
+.Button--primary.active {
+  background-color: #117ad2;
+  background-image: none;
+  border-color: #0d5c9e #0f6ab6 #1177cd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
