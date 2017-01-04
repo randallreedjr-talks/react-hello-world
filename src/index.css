@@ -4,6 +4,37 @@ body {
   font-family: sans-serif;
 }
 
+.Sidebar-left {
+  width: 20%;
+  background-color: #eee;
+  display: inline-block;
+  position: absolute;
+  top: 190px;
+  bottom: 0;
+  left: 0;
+  padding-top: 20px;
+}
+
+.Banner-top {
+  width: 80%;
+  position: relative;
+  top: 0;
+  left: 20%;
+  height: 50px;
+  line-height: 50px;
+  background-color: rgba(250, 159, 71, 0.1);
+  border-color: rgba(250, 159, 71, 0.05);
+  border-bottom: 2px solid;
+  color: #fa9f47;
+}
+
+.container__main {
+  width: 80%;
+  position: relative;
+  top: 0;
+  left: 20%;
+}
+
 .Modal-backdrop {
   background-color: #000;
   opacity: 0.50;

@@ -6,13 +6,29 @@ import { shallow, mount } from 'enzyme';
 
 describe('HelloWorldContainer', () => {
   it('renders HelloWorld component', () => {
-    let subject = shallow(<HelloWorldContainer name='Tester' />);
+    let subject = shallow(
+      <HelloWorldContainer
+        name=''
+        onSubmit={() => {}}
+        onCancel={() => {}}
+        onClick={() => {}}
+        modalIsOpen={false}
+      />
+    );
 
     expect(subject.find(HelloWorld).length).toEqual(1);
   });
 
-  it('defaults name to Randall', () => {
-    let subject = mount(<HelloWorldContainer name='Tester' />);
+  it('displays provided name', () => {
+    let subject = mount(
+      <HelloWorldContainer
+        name='Randall'
+        onSubmit={() => {}}
+        onCancel={() => {}}
+        onClick={() => {}}
+        modalIsOpen={false}
+      />
+    );
 
     expect(subject.text()).toContain('Hello Randall!');
   });

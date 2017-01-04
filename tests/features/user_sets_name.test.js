@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorldContainer from '../../src/HelloWorldContainer';
+import App from '../../src/App';
 import { mount } from 'enzyme';
 
 describe('Setting name', () => {
   it('updates displayed name', () => {
-    let subject = mount(<HelloWorldContainer />);
+    let subject = mount(<App />);
     // simulate change does not work with refs
     subject.find('.name-link').simulate('click');
     subject.find('.name-input').get(0).value = 'Tester';
@@ -16,13 +16,13 @@ describe('Setting name', () => {
 })
 describe('Canceled setting name', () => {
   it('does not update displayed name', () => {
-    let subject = mount(<HelloWorldContainer />);
+    let subject = mount(<App />);
     // simulate change does not work with refs
     subject.find('.name-link').simulate('click');
     subject.find('.name-input').get(0).value = 'Tester';
     subject.find('.Button--link-cancel').simulate('click');
 
-    expect(subject.text()).toContain('Hello Randall!');
+    expect(subject.text()).toContain('Hello New User!');
     expect(subject.text()).not.toContain('Please enter your name');
   })
 })

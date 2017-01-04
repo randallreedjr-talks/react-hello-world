@@ -4,49 +4,27 @@ import HelloWorld from './HelloWorld.js';
 import ModalContainer from './ModalContainer.js';
 
 export default class HelloWorldContainer extends Component {
-  constructor() {
-    super();
-    this.state = { name: '', modalIsOpen: false };
-    // bind this to allow updating state
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    // Imagine an ajax call to get name from server
-    let name = 'Randall';
-    this.setState({name});
-  }
-
-  handleSubmit(e, nameInput) {
-    e.preventDefault();
-    // Imagine an ajax call to update name to server
-    this.setState({name: nameInput.value, modalIsOpen: false});
-  }
-
-  handleCancel() {
-    this.setState({ modalIsOpen: false });
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-    this.setState({ modalIsOpen: true });
-  }
-
   render() {
     return (
       <div>
         <HelloWorld
-          name={this.state.name}
-          onClick={this.handleClick}
+          name={this.props.name}
+          onClick={this.props.onClick}
         />
         <ModalContainer
-          modalIsOpen={this.state.modalIsOpen}
-          onSubmit={this.handleSubmit}
-          onCancel={this.handleCancel}
+          modalIsOpen={this.props.modalIsOpen}
+          onSubmit={this.props.onSubmit}
+          onCancel={this.props.onCancel}
         />
       </div>
     );
   }
+}
+
+HelloWorldContainer.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  onSubmit: React.PropTypes.func.isRequired,
+  onCancel: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func.isRequired,
+  modalIsOpen: React.PropTypes.bool.isRequired
 }
