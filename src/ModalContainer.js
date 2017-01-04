@@ -7,6 +7,10 @@ import ModalFooter from './Modal/ModalFooter.js'
 export default class ModalContainer extends Component {
   render() {
     return (
+<<<<<<< 1f13b2f38c148830efce5ddadfa7c7f5c5dd57d0
+=======
+      // <Modal isOpen={this.state.modalIsOpen} onCancel={this.toggleModal} backdropClosesModal>
+>>>>>>> Display form in modal
       <Modal isOpen={this.props.modalIsOpen}>
         <ModalHeader text="Please enter your name" showCloseButton onClose={this.toggleModal} />
         <form onSubmit={(e) => this.props.onSubmit(e, this.nameInput)}>
