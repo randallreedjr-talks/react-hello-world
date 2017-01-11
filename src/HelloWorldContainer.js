@@ -6,8 +6,18 @@ import HelloWorld from './HelloWorld.js';
 import ModalContainer from './ModalContainer.js';
 
 const HelloWorldContainer = inject('store')(observer(class HelloWorldContainer extends Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   getName() {
     return this.props.store.name || 'New User';
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.store.openModal();
   }
 
   render() {
@@ -15,21 +25,12 @@ const HelloWorldContainer = inject('store')(observer(class HelloWorldContainer e
       <div>
         <HelloWorld
           name={this.getName()}
-          onClick={this.props.onClick}
+          onClick={this.handleClick}
         />
-        <ModalContainer
-          onSubmit={this.props.onSubmit}
-          onCancel={this.props.onCancel}
-        />
+        <ModalContainer />
       </div>
     );
   }
 }));
 
 export default HelloWorldContainer;
-
-HelloWorldContainer.propTypes = {
-  onSubmit: React.PropTypes.func.isRequired,
-  onCancel: React.PropTypes.func.isRequired,
-  onClick: React.PropTypes.func.isRequired
-}

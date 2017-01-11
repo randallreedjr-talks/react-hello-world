@@ -46,39 +46,35 @@ describe('ModalContainer', () => {
     it('triggers submit callback when submitted', () => {
       const nameStore = new HelloStore();
       nameStore.openModal();
-      const submitCallback = jest.fn();
-      const cancelCallback = jest.fn();
+      spyOn(nameStore, 'setName');
+      spyOn(nameStore, 'closeModal');
+
       const subject = mount(
         <Provider store={nameStore} >
-          <ModalContainer
-            onSubmit={submitCallback}
-            onCancel={cancelCallback}
-          />
+          <ModalContainer />
         </Provider>
       );
       subject.find('form').simulate('submit');
 
-      expect(submitCallback).toHaveBeenCalled();
-      expect(cancelCallback).not.toHaveBeenCalled();
+      expect(nameStore.setName).toHaveBeenCalled();
+      expect(nameStore.closeModal).toHaveBeenCalled();
     });
 
     it('triggers cancel callback when cancelled', () => {
       const nameStore = new HelloStore();
       nameStore.openModal();
-      const submitCallback = jest.fn();
-      const cancelCallback = jest.fn();
+      spyOn(nameStore, 'setName');
+      spyOn(nameStore, 'closeModal');
+
       const subject = mount(
         <Provider store={nameStore} >
-          <ModalContainer
-            onSubmit={submitCallback}
-            onCancel={cancelCallback}
-          />
+          <ModalContainer />
         </Provider>
       );
       subject.find('.Button--link-cancel').simulate('click');
 
-      expect(submitCallback).not.toHaveBeenCalled();
-      expect(cancelCallback).toHaveBeenCalled();
+      expect(nameStore.setName).not.toHaveBeenCalled();
+      expect(nameStore.closeModal).toHaveBeenCalled();
     });
   });
 });
