@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import { inject, observer} from 'mobx-react';
+
 import Modal from './Modal/Modal.js'
 import ModalBody from './Modal/ModalBody.js'
 import ModalHeader from './Modal/ModalHeader.js'
 import ModalFooter from './Modal/ModalFooter.js'
 
-export default class ModalContainer extends Component {
+// export default class ModalContainer extends Component {
+const ModalContainer = inject('store')(observer(class ModalContainer extends Component {
   render() {
     return (
-      <Modal isOpen={this.props.modalIsOpen}>
+      <Modal isOpen={this.props.store.isModalOpen}>
         <ModalHeader text="Please enter your name" showCloseButton onClose={this.toggleModal} />
         <form onSubmit={(e) => this.props.onSubmit(e, this.nameInput)}>
           <ModalBody>
@@ -29,10 +32,11 @@ export default class ModalContainer extends Component {
       </Modal>
     )
   }
-}
+}));
+
+export default ModalContainer;
 
 ModalContainer.propTypes = {
-  modalIsOpen: React.PropTypes.bool.isRequired,
   onSubmit: React.PropTypes.func.isRequired,
   onCancel: React.PropTypes.func.isRequired
 }

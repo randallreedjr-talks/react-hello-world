@@ -1,17 +1,16 @@
 // Banner.js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {inject, observer} from 'mobx-react';
 
-export default class Banner extends Component {
+const Banner = inject('store')(observer(class Banner extends Component {
   render() {
-    if (this.props.nameSet) {
+    if (this.props.store.nameSet) {
       return null
     }
     return (
       <div className="Banner-top">Have you set your name yet?</div>
     )
   }
-}
+}));
 
-Banner.propTypes = {
-  nameSet: React.PropTypes.bool.isRequired
-}
+export default Banner;

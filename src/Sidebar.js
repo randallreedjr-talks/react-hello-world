@@ -1,5 +1,5 @@
 // Sidebar.js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Sidebar extends Component {
   render() {
@@ -7,7 +7,7 @@ export default class Sidebar extends Component {
       <div className="Sidebar-left">{this.props.name}'s Sidebar</div>
     )
   }
-}
+};
 
 Sidebar.propTypes = {
   name: React.PropTypes.string.isRequired

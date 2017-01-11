@@ -9,29 +9,31 @@ import HelloStore from '../../src/HelloStore.js';
 describe('HelloWorldContainer', () => {
   it('renders HelloWorld component', () => {
     let subject = mount(
-      <HelloWorldContainer
-        name=''
-        onSubmit={() => {}}
-        onCancel={() => {}}
-        onClick={() => {}}
-        modalIsOpen={false}
-      />
+      <Provider store={new HelloStore()}>
+        <HelloWorldContainer
+          onSubmit={() => {}}
+          onCancel={() => {}}
+          onClick={() => {}}
+          modalIsOpen={false}
+        />
+      </Provider>
     );
 
     expect(subject.find(HelloWorld).length).toEqual(1);
   });
 
   it('displays provided name', () => {
-    let subject = mount(
-      // <Provider store={new HelloStore()}>
+    const nameStore = new HelloStore();
+    nameStore.setName('Randall');
+    const subject = mount(
+      <Provider store={nameStore}>
         <HelloWorldContainer
-          name='Randall'
           onSubmit={() => {}}
           onCancel={() => {}}
           onClick={() => {}}
           modalIsOpen={false}
         />
-      // </Provider>
+      </Provider>
     );
 
     expect(subject.text()).toContain('Hello Randall!');

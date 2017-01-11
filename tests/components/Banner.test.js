@@ -1,14 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { mount } from 'enzyme';
+import { Provider } from 'mobx-react';
+
 import Banner from '../../src/Banner';
-import { shallow } from 'enzyme';
+import HelloStore from '../../src/HelloStore';
 
 it('renders prompt when name not set', () => {
-  let subject = shallow(<Banner nameSet={false} />);
+  const subject = mount(
+    <Provider store={new HelloStore()} >
+      <Banner />
+    </Provider>
+  );
   expect(subject.text()).toContain('Have you set your name yet?');
 });
 
 it('renders nothing when name is set', () => {
-  let subject = shallow(<Banner nameSet={true} />);
-  expect(subject.text()).toEqual('');
+  const nameStore = new HelloStore();
+  nameStore.setName('Tester');
+  const subject = mount(
+    <Provider store={nameStore} >
+      <Banner />
+    </Provider>
+  );
+  expect(subject.html()).toEqual(null);
 })

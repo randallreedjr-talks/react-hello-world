@@ -12,6 +12,15 @@ export default class HelloStore {
 
   setName(name) {
     this.name = name;
+    this.nameSet = (name !== '');
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
   }
 }
 
