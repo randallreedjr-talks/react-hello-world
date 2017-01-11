@@ -50,25 +50,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <Provider store={HelloStore}>
-          <div>
-            <Sidebar name={this.state.name}/>
-            <Banner nameSet={this.state.nameSet}/>
-            <HelloWorldContainer
-              name={this.state.name}
-              onSubmit={this.handleSubmit}
-              onCancel={this.handleCancel}
-              onClick={this.handleClick}
-              modalIsOpen={this.state.modalIsOpen}
-            />
+      <Provider store={new HelloStore()}>
+        <div className="App">
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>Welcome to React</h2>
           </div>
-        </Provider>
-      </div>
+          <Sidebar name={this.state.name}/>
+          <Banner nameSet={this.state.nameSet}/>
+          <HelloWorldContainer
+            name={this.state.name}
+            onSubmit={this.handleSubmit}
+            onCancel={this.handleCancel}
+            onClick={this.handleClick}
+            modalIsOpen={this.state.modalIsOpen}
+          />
+        </div>
+      </Provider>
     );
   }
 }

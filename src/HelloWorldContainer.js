@@ -2,9 +2,11 @@
 import React, { Component } from 'react';
 import HelloWorld from './HelloWorld.js';
 import ModalContainer from './ModalContainer.js';
+import {inject, observer} from 'mobx-react';
 
-export default class HelloWorldContainer extends Component {
+const HelloWorldContainer = inject('store')(observer(class HelloWorldContainer extends Component {
   render() {
+    console.log(this.props.store.name)
     return (
       <div>
         <HelloWorld
@@ -19,7 +21,9 @@ export default class HelloWorldContainer extends Component {
       </div>
     );
   }
-}
+}));
+
+export default HelloWorldContainer;
 
 HelloWorldContainer.propTypes = {
   name: React.PropTypes.string.isRequired,
