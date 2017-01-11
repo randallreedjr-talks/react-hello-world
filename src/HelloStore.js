@@ -9,6 +9,10 @@ export default class HelloStore {
       isModalOpen: false
     })
   }
+
+  setName(name) {
+    this.name = name;
+  }
 }
 
 
