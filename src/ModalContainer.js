@@ -32,6 +32,7 @@ export default class ModalContainer extends Component {
 }
 
 ModalContainer.propTypes = {
+  name: React.PropTypes.string.isRequired,
   modalIsOpen: React.PropTypes.bool.isRequired,
   onSubmit: React.PropTypes.func.isRequired,
   onCancel: React.PropTypes.func.isRequired

@@ -42,6 +42,7 @@ export default class HelloWorldContainer extends Component {
           onClick={this.handleClick}
         />
         <ModalContainer
+          name={this.state.name}
           modalIsOpen={this.state.modalIsOpen}
           onSubmit={this.handleSubmit}
           onCancel={this.handleCancel}
